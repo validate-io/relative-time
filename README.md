@@ -1,4 +1,4 @@
-relative-time
+Relative Time
 ===
 [![NPM version][npm-image]][npm-url] [![Build Status][travis-image]][travis-url] [![Coverage Status][coveralls-image]][coveralls-url] [![Dependencies][dependencies-image]][dependencies-url]
 
@@ -16,18 +16,25 @@ For use in the browser, use [browserify](https://github.com/substack/node-browse
 
 ## Usage
 
-To use the module,
+Validates whether an input string is a relative time. Relative times have a time unit (`ms`, `s`, `m`, `h`, `d`, `w`, `n`, `y`) and the suffix `-ago`.
 
 ``` javascript
-var lib = require( 'validate.io-relative-time' );
+var validate = require( 'validate.io-relative-time' );
+
+console.log( validate( '72000ms-ago' ) );
+// Returns true
+
+console.log( validate( '72s ago' ) );
+// Returns false
 ```
+
+## Notes
+
+* 	The unit for months is `n`.
+* 	This method validates that the `value` to be validated is a `string`. For any other types, the method returns `false`.
 
 
 ## Examples
-
-``` javascript
-var lib = require( 'validate.io-relative-time' );
-```
 
 To run the example code from the top-level application directory,
 
