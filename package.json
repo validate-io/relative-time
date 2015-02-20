@@ -28,7 +28,12 @@
     "validation",
     "validator",
     "relative",
-    "time"
+    "time",
+    "is",
+    "type",
+    "check",
+    "isrelativetime",
+    "valid"
   ],
   "bugs": {
     "url": "https://github.com/validate-io/relative-time/issues"
