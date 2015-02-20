@@ -1,7 +1,9 @@
-var validate = require( './../lib' );
+'use strict';
 
-console.log( validate( '72000ms-ago' ) );
-// Returns true
+var isRelativeTime = require( './../lib' );
 
-console.log( validate( '72s ago' ) );
-// Returns false
+console.log( isRelativeTime( '72000ms-ago' ) );
+// returns true
+
+console.log( isRelativeTime( '72s ago' ) );
+// returns false

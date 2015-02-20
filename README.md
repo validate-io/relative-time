@@ -16,25 +16,37 @@ For use in the browser, use [browserify](https://github.com/substack/node-browse
 
 ## Usage
 
-Validates whether an input string is a relative time. Relative times have a time unit (`ms`, `s`, `m`, `h`, `d`, `w`, `n`, `y`) and the suffix `-ago`.
+``` javascript
+var isRelativeTime = require( 'validate.io-relative-time' );
+```
+
+#### isRelativeTime( value )
+
+Validates whether an input `string` is a relative time. Relative times have a time unit (`ms`, `s`, `m`, `h`, `d`, `w`, `n`, `y`) and the suffix `-ago`.
 
 ``` javascript
-var validate = require( 'validate.io-relative-time' );
+var value = '1s-ago';
 
-console.log( validate( '72000ms-ago' ) );
-// Returns true
-
-console.log( validate( '72s ago' ) );
-// Returns false
+var bool = isRelativeTime( value );
+// returns true
 ```
+
 
 ## Notes
 
 * 	The unit for months is `n`.
-* 	This method validates that the `value` to be validated is a `string`. For any other types, the method returns `false`.
+* 	This method first validates that the input `value` is a `string`. For non-string values, the method returns `false`.
 
 
 ## Examples
+
+``` javascript
+console.log( isRelativeTime( '72000ms-ago' ) );
+// returns true
+
+console.log( isRelativeTime( '72s ago' ) );
+// returns false
+```
 
 To run the example code from the top-level application directory,
 
@@ -47,7 +59,7 @@ $ node ./examples/index.js
 
 ### Unit
 
-Unit tests use the [Mocha](http://visionmedia.github.io/mocha) test framework with [Chai](http://chaijs.com) assertions. To run the tests, execute the following command in the top-level application directory:
+Unit tests use the [Mocha](http://mochajs.org) test framework with [Chai](http://chaijs.com) assertions. To run the tests, execute the following command in the top-level application directory:
 
 ``` bash
 $ make test
@@ -67,16 +79,16 @@ $ make test-cov
 Istanbul creates a `./reports/coverage` directory. To access an HTML version of the report,
 
 ``` bash
-$ open reports/coverage/lcov-report/index.html
+$ make view-cov
 ```
 
 
+---
 ## License
 
 [MIT license](http://opensource.org/licenses/MIT). 
 
 
----
 ## Copyright
 
 Copyright &copy; 2014. Athan Reines.
